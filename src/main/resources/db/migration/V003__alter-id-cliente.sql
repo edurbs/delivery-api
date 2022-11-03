@@ -1,0 +1,2 @@
+ALTER TABLE `delivery`.`consumer` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ;
