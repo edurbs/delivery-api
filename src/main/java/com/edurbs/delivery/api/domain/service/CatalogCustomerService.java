@@ -32,4 +32,10 @@ public class CatalogCustomerService {
     public void delete (Long customerId) {
         customerRepository.deleteById(customerId);
     }
+
+    public Customer find(Long customerId) {
+        Customer customer = customerRepository.findById(customerId)
+            .orElseThrow(()-> new DomainException("Cliente não encontrado"));
+        return customer;
+    }
 }
