@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edurbs.delivery.api.domain.model.Customer;
 import com.edurbs.delivery.api.domain.repository.CustomerRepository;
+import com.edurbs.delivery.api.domain.service.CatalogCustomerService;
 
 
 @RestController
@@ -29,6 +30,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+    
+    @Autowired
+    private CatalogCustomerService catalogCustomerService;
 
     @GetMapping("/all")
     public List<Customer> list(){              
@@ -45,7 +49,7 @@ public class CustomerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Customer add(@Valid @RequestBody Customer customer){
-        return customerRepository.save(customer);
+        return catalogCustomerService.save(customer);
     }
 
     @PutMapping(PATH_CUSTOMER_ID)
@@ -54,7 +58,7 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
         }
         customer.setId(customerId);
-        return ResponseEntity.ok(customerRepository.save(customer));
+        return ResponseEntity.ok(catalogCustomerService.save(customer));
     }
 
     @DeleteMapping(PATH_CUSTOMER_ID)
@@ -62,7 +66,7 @@ public class CustomerController {
         if(!customerRepository.existsById(customerId)){
             return ResponseEntity.notFound().build();
         }
-        customerRepository.deleteById(customerId);
+        catalogCustomerService.delete(customerId);
 
         return ResponseEntity.noContent().build(); //204 empty without body
 
