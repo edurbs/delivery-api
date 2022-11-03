@@ -1,11 +1,7 @@
 package com.edurbs.delivery.api.controller;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,12 +44,12 @@ public class CustomerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer add(@RequestBody Customer customer){
+    public Customer add(@Valid @RequestBody Customer customer){
         return customerRepository.save(customer);
     }
 
     @PutMapping(PATH_CUSTOMER_ID)
-    public ResponseEntity<Customer> update(@PathVariable Long customerId, @RequestBody Customer customer){
+    public ResponseEntity<Customer> update(@Valid @PathVariable Long customerId, @RequestBody Customer customer){
         if(!customerRepository.existsById(customerId)){
             return ResponseEntity.notFound().build();
         }
