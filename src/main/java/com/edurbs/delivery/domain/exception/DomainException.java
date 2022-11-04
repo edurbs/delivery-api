@@ -1,4 +1,4 @@
-package com.edurbs.delivery.api.domain.exception;
+package com.edurbs.delivery.domain.exception;
 
 public class DomainException extends RuntimeException {
 

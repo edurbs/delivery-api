@@ -1,12 +1,11 @@
 package com.edurbs.delivery.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +14,7 @@ import lombok.Setter;
 @Setter
 public class Problem {
     private Integer status;
-    private LocalDateTime dateTime;
+    private OffsetDateTime dateTime;
     private String title;
     private List<Field> fields;
 

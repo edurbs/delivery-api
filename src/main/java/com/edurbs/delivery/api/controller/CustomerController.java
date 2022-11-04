@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edurbs.delivery.api.domain.model.Customer;
-import com.edurbs.delivery.api.domain.repository.CustomerRepository;
-import com.edurbs.delivery.api.domain.service.CatalogCustomerService;
+import com.edurbs.delivery.domain.model.Customer;
+import com.edurbs.delivery.domain.repository.CustomerRepository;
+import com.edurbs.delivery.domain.service.CatalogCustomerService;
 
 
 @RestController
@@ -34,7 +34,7 @@ public class CustomerController {
     @Autowired
     private CatalogCustomerService catalogCustomerService;
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public List<Customer> list(){              
         return customerRepository.findAll();        
     }
@@ -48,7 +48,7 @@ public class CustomerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer add(@Valid @RequestBody Customer customer){
+    public Customer add(@Valid @RequestBody Customer customer){ //todo repModel
         return catalogCustomerService.save(customer);
     }
 

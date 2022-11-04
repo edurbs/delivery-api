@@ -1,4 +1,4 @@
-package com.edurbs.delivery.api.domain.repository;
+package com.edurbs.delivery.domain.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.edurbs.delivery.api.domain.model.Customer;
+import com.edurbs.delivery.domain.model.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>{

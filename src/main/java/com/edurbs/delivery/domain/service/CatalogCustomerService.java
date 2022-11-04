@@ -1,11 +1,11 @@
-package com.edurbs.delivery.api.domain.service;
+package com.edurbs.delivery.domain.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.edurbs.delivery.api.domain.exception.DomainException;
-import com.edurbs.delivery.api.domain.model.Customer;
-import com.edurbs.delivery.api.domain.repository.CustomerRepository;
+import com.edurbs.delivery.domain.exception.DomainException;
+import com.edurbs.delivery.domain.model.Customer;
+import com.edurbs.delivery.domain.repository.CustomerRepository;
 
 import lombok.AllArgsConstructor;
 
