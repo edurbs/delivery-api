@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.edurbs.delivery.api.assembler.DeliveryAssembler;
 import com.edurbs.delivery.api.model.DeliveryModel;
 import com.edurbs.delivery.api.model.input.DeliveryInput;
-import com.edurbs.delivery.domain.model.Delivery;
 import com.edurbs.delivery.domain.repository.DeliveryRepository;
 import com.edurbs.delivery.domain.service.AskDeliveryService;
 import com.edurbs.delivery.domain.service.CompleteDeliveryService;
@@ -48,7 +46,7 @@ public class DeliveryController {
 
     @GetMapping
     public List<DeliveryModel> list(){
-        return deliveryAssembler.toCollectionModel(deliveryRepository.findAll());
+        return deliveryAssembler.toListModel(deliveryRepository.findAll());
     }
 
     @GetMapping("/{deliveryId}")

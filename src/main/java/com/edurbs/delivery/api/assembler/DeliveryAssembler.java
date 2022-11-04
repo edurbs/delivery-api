@@ -22,13 +22,13 @@ public class DeliveryAssembler {
         return modelMapper.map(delivery, DeliveryModel.class);
     }
 
-    public List<DeliveryModel> toCollectionModel(List<Delivery> deliveries){
+    public List<DeliveryModel> toListModel(List<Delivery> deliveries){
         return deliveries.stream()
                 .map(this::toModel)
                 .collect(Collectors.toList());
     }
 
-    public Delivery toEntity(DeliveryInput deliveryInputModel){
-        return modelMapper.map(deliveryInputModel, Delivery.class);
+    public Delivery toEntity(DeliveryInput deliveryInput){
+        return modelMapper.map(deliveryInput, Delivery.class);
     }
 }

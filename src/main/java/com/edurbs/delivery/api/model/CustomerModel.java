@@ -5,7 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerLightModel {
+public class CustomerModel {
+    
     private Long id;
     private String name;
+    private String email;
+    private String fone;
 }

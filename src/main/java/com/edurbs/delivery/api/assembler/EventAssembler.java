@@ -1,7 +1,6 @@
 package com.edurbs.delivery.api.assembler;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -22,8 +21,8 @@ public class EventAssembler {
         return modelMapper.map(event, EventModel.class);
     }
 
-    public List<EventModel> toListModel (List<Event> listEvents){
-        return listEvents.stream()
+    public List<EventModel> toListModel (List<Event> events){
+        return events.stream()
                 .map(this::toModel)
                 .collect(Collectors.toList());
     }
